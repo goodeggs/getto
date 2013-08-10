@@ -1,0 +1,26 @@
+{
+  "name": "modelit",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "http://goodeggs.github.com/modelit/",
+  "main": "lib/modelit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodeggs/modelit.git"
+  },
+  "keywords": [
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "express": "*",
+    "coffee-script": "*",
+    "coffee-errors": "*",
+    "mocha": "*",
+    "expect.js": "*"
+  },
+  "scripts": {
+    "pretest": "./node_modules/.bin/coffee -c -o lib src",
+    "test": "./node_modules/.bin/mocha"
+  }
+}
