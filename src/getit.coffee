@@ -8,7 +8,7 @@ pathFn = (obj, path, def) ->
 get = (path) ->
   pathFn @, path
 
-module.exports = modelit = (obj) ->
+module.exports = getit = (obj) ->
   return obj unless obj?
   throw 'Not an Object' unless obj.constructor?.name is 'Object'
 

@@ -1,9 +1,9 @@
 expect = require 'expect.js'
 require 'coffee-errors'
 express = require 'express'
-modelit = require '..'
+getit = require '..'
 
-describe 'modelit', ->
+describe 'getit', ->
   describe 'get', ->
     obj = null
     beforeEach ->
@@ -14,7 +14,7 @@ describe 'modelit', ->
         }
         baz: ['a', 'b']
       }
-      modelit(obj)
+      getit(obj)
 
     it 'gets shallow path', ->
       expect(obj.get 'foo').to.be 'one'

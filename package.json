@@ -1,12 +1,12 @@
 {
-  "name": "modelit",
+  "name": "getit",
   "version": "0.0.1",
   "description": "",
-  "homepage": "http://goodeggs.github.com/modelit/",
-  "main": "lib/modelit",
+  "homepage": "http://goodeggs.github.com/getit/",
+  "main": "lib/getit",
   "repository": {
     "type": "git",
-    "url": "git://github.com/goodeggs/modelit.git"
+    "url": "git://github.com/goodeggs/getit.git"
   },
   "keywords": [
   ],
