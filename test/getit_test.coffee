@@ -28,5 +28,8 @@ describe 'getit', ->
     it 'returns undefined for non-existant path', ->
       expect(obj.get 'bar.three.1').to.be undefined
 
+    it 'mixes getit into objects returned by get', ->
+      expect(obj.get('bar').get('two')).to.be 3
+
 
 
