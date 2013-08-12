@@ -1,8 +1,7 @@
-pathFn = (obj, path, def) ->
+pathFn = (obj, path) ->
   for part in path.split '.'
-    return def if not obj or typeof obj isnt 'object'
+    return obj if not obj? or typeof obj isnt 'object'
     obj = obj[part]
-  return def if obj is undefined
   return obj
 
 isObject = (value) ->
