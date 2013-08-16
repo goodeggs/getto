@@ -16,9 +16,13 @@ get = (path) ->
     getit(item) for item in value when isObject(item)
   value
 
+get.getit = true # Identify this getter as ours
+
 module.exports = getit = (obj) ->
   return obj if not obj?
-  throw 'Not an Object' unless isObject(obj)
+  throw new Error('Not an Object') unless isObject(obj)
+  return if obj.get?.getit # Don't mix in twice
+  throw new Error("'get' is already defined") if obj.get?
 
   Object.defineProperty obj, 'get', value: get, enumerable: false
   obj

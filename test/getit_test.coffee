@@ -34,5 +34,8 @@ describe 'getit', ->
     it 'mixes getit into objects in arrays returned by get', ->
       expect(obj.get('baz')[0].get('a')).to.be 1
 
+    it 'wont clobber get', ->
+      expect(-> getit({get: true})).to.throwError()
 
-
+    it 'wont mix in twice', ->
+      expect(-> getit(obj)).to.not.throwError()
