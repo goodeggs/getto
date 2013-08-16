@@ -7,11 +7,13 @@ pathFn = (obj, path) ->
 isObject = (value) ->
   return false if not value?
   return false if typeof value isnt 'object'
-  value.constructor?.name is 'Object'
+  value.constructor is Object
 
 get = (path) ->
   value = pathFn @, path
   getit(value) if isObject(value)
+  if Array.isArray(value)
+    getit(item) for item in value when isObject(item)
   value
 
 module.exports = getit = (obj) ->
