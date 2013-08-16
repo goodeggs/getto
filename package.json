@@ -1,12 +1,12 @@
 {
-  "name": "getit",
+  "name": "getto",
   "version": "0.0.1",
   "description": "",
-  "homepage": "http://goodeggs.github.com/getit/",
-  "main": "lib/getit",
+  "homepage": "http://goodeggs.github.com/getto/",
+  "main": "lib/getto",
   "repository": {
     "type": "git",
-    "url": "git://github.com/goodeggs/getit.git"
+    "url": "git://github.com/goodeggs/getto.git"
   },
   "keywords": [
   ],

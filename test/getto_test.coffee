@@ -1,9 +1,9 @@
 expect = require 'expect.js'
 require 'coffee-errors'
 express = require 'express'
-getit = require '..'
+getto = require '..'
 
-describe 'getit', ->
+describe 'getto', ->
   describe 'get', ->
     obj = null
     beforeEach ->
@@ -14,7 +14,7 @@ describe 'getit', ->
         }
         baz: [{a: 1}, {b: 2}]
       }
-      getit(obj)
+      getto(obj)
 
     it 'gets shallow path', ->
       expect(obj.get 'foo').to.be 'one'
@@ -28,14 +28,14 @@ describe 'getit', ->
     it 'returns undefined for non-existant path', ->
       expect(obj.get 'bar.three.1').to.be undefined
 
-    it 'mixes getit into objects returned by get', ->
+    it 'mixes getto into objects returned by get', ->
       expect(obj.get('bar').get('two')).to.be 3
 
-    it 'mixes getit into objects in arrays returned by get', ->
+    it 'mixes getto into objects in arrays returned by get', ->
       expect(obj.get('baz')[0].get('a')).to.be 1
 
     it 'wont clobber get', ->
-      expect(-> getit({get: true})).to.throwError()
+      expect(-> getto({get: true})).to.throwError()
 
     it 'wont mix in twice', ->
-      expect(-> getit(obj)).to.not.throwError()
+      expect(-> getto(obj)).to.not.throwError()
