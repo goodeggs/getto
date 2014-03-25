@@ -4,6 +4,26 @@ express = require 'express'
 getto = require '..'
 
 describe 'getto', ->
+  describe 'mixin behavior', ->
+    obj = null
+
+    describe 'on a bare object', ->
+      beforeEach ->
+        obj = {foo: 1}
+
+      it "returns newly getto'd object", ->
+        returnVal = getto(obj)
+        expect(returnVal).to.be obj
+        expect(obj.get).to.be.ok
+
+    describe "on a getto'd object", ->
+      beforeEach ->
+        obj = {foo: 1}
+        getto(obj)
+
+      it "returns the object", ->
+        expect(getto(obj)).to.be obj
+
   describe 'get', ->
     obj = null
     beforeEach ->
