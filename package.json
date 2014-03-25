@@ -1,6 +1,6 @@
 {
   "name": "getto",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Mix a 'get' method into Object instances that understands nested paths.",
   "homepage": "http://goodeggs.github.com/getto/",
   "main": "lib/getto",
