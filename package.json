@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "express": "*",
-    "coffee-script": "*",
+    "coffee-script": ">=1.7",
     "coffee-errors": "*",
     "mocha": "*",
     "expect.js": "*"
