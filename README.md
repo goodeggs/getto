@@ -3,8 +3,8 @@ Getto
 
 Mix a non-enumerable ```get``` method into plain JavaScript Object instances that supports deeply nested paths.
 
-At Good Eggs we write mixins for frameworks that have models with ```get``` accessors like Backbone and Mongoose. Getto
-allows us to use those mixins with plain Object instances, for example, those returned Mongoose's ```lean``` query
+At Good Eggs we write [mixins](https://github.com/goodeggs/model-mixin) for frameworks that have models with `get` accessors like Backbone and Mongoose. Getto
+allows us to use those mixins with plain Object instances, for example, those returned Mongoose's `lean` query
 modifier.
 
 Usage
