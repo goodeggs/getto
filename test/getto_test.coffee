@@ -35,6 +35,10 @@ describe 'getto', ->
       up = getto ({word}) -> word.toUpperCase()
       expect(up word: 'Hamlet').to.be 'HAMLET'
 
+    it "throws an error if you have more than one argument" ,->
+      hello = getto -> 'hi'
+      expect(-> hello 'one', 'two').to.throwError()
+
   describe 'get', ->
     obj = null
     beforeEach ->
