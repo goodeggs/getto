@@ -9,6 +9,18 @@ isObject = (value) ->
   return false if typeof value isnt 'object'
   value.constructor is Object
 
+wrapFunction = (func) ->
+  (options) ->
+    if arguments.length > 1 or typeof options isnt 'object'
+      throw new Error("You can only getto functions that take a single options argument")
+
+    for key of options
+      value = options[key]
+      if typeof value is 'object' and not value.get
+        options[key] = getto value
+
+    func options
+
 get = (path) ->
   value = pathFn @, path
   getto(value) if isObject(value)
@@ -19,6 +31,7 @@ get = (path) ->
 get.getto = true # Identify this getter as ours
 
 module.exports = getto = (obj) ->
+  return wrapFunction obj if typeof obj is 'function'
   return obj if not obj?
   throw new Error('Not an Object') unless isObject(obj)
   return obj if obj.get?.getto # Don't mix in twice
