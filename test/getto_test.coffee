@@ -27,11 +27,16 @@ describe 'getto', ->
   describe 'wrapping a function', ->
     hello = getto -> 'hi'
 
-    it "gettos the option", ->
+    describe "that takes a product as an option", ->
       productPath = getto ({product}) ->
         '/' + product.get('slug')
       product = {slug: 'tomatoes'}
-      expect( productPath {product} ).to.be '/tomatoes'
+
+      it "gettos the option", ->
+        expect(productPath {product}).to.be '/tomatoes'
+
+      it "works with already getto'd options", ->
+        expect(productPath product: getto(product)).to.be '/tomatoes'
 
     it "works with non-object options", ->
       up = getto ({word}) -> word.toUpperCase()
