@@ -25,6 +25,8 @@ describe 'getto', ->
         expect(getto(obj)).to.be obj
 
   describe 'wrapping a function', ->
+    hello = getto -> 'hi'
+
     it "gettos the option", ->
       productPath = getto ({product}) ->
         '/' + product.get('slug')
@@ -36,8 +38,10 @@ describe 'getto', ->
       expect(up word: 'Hamlet').to.be 'HAMLET'
 
     it "throws an error if you have more than one argument" ,->
-      hello = getto -> 'hi'
       expect(-> hello 'one', 'two').to.throwError()
+
+    it "throws an error if you pass a non-object to the wrapped function", ->
+      expect(-> hello 'one').to.throwError()
 
   describe 'get', ->
     obj = null

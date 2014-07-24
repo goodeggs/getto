@@ -11,8 +11,9 @@ isObject = (value) ->
 
 wrapFunction = (func) ->
   (options) ->
-    if arguments.length > 1
+    if arguments.length > 1 or typeof options isnt 'object'
       throw new Error("You can only getto functions that take a single options argument")
+
     for key of options
       value = options[key]
       if typeof value is 'object' and not value.get
