@@ -24,6 +24,17 @@ describe 'getto', ->
       it "returns the object", ->
         expect(getto(obj)).to.be obj
 
+  describe 'wrapping a function', ->
+    it "gettos the option", ->
+      productPath = getto ({product}) ->
+        '/' + product.get('slug')
+      product = {slug: 'tomatoes'}
+      expect( productPath {product} ).to.be '/tomatoes'
+
+    it "works with non-object options", ->
+      up = getto ({word}) -> word.toUpperCase()
+      expect(up word: 'Hamlet').to.be 'HAMLET'
+
   describe 'get', ->
     obj = null
     beforeEach ->
